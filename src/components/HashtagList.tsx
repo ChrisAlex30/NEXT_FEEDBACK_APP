@@ -1,8 +1,16 @@
 import React from 'react'
 
-const HashtagList = () => {
+type HashtagListProps={
+  companyList:string[]
+  handleCompanySelect:(company:string)=>void
+}
+const HashtagList = ({companyList,handleCompanySelect}:HashtagListProps) => {
   return (
-    <div>HashtagList</div>
+    <ul className='hashtags'>
+      {
+        companyList.map(name=><li key={name}><button onClick={()=>handleCompanySelect(name)}>#{name}</button></li>)
+      }
+    </ul>
   )
 }
 

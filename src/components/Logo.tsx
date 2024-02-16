@@ -3,7 +3,7 @@ import React from 'react'
 
 const Logo = () => {
   return (
-    <Link href={'/'} className="logo">
+    <Link href={"/"} className="logo">
     <h1>Next-FeedBack</h1>
   </Link>  )
 }

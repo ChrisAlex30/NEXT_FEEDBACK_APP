@@ -17,4 +17,5 @@ model FeedBack{
   companyName String
   text String
   daysAgo Int
+  createdAt DateTime @default(now())
 }

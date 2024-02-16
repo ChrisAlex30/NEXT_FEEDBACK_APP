@@ -4,13 +4,16 @@ import Logo from './Logo'
 import PageHeading from './PageHeading'
 import FeedbackForm from './FeedbackForm'
 
-const Header = () => {
+type HeaderProps={
+  handleAdd:(item:string)=>void
+}
+const Header = ({handleAdd}:HeaderProps) => {
   return (
     <header>
       <Pattern />
       <Logo />
       <PageHeading />
-      <FeedbackForm />
+      <FeedbackForm handleAdd={handleAdd}/>
     </header>
   )
 }
