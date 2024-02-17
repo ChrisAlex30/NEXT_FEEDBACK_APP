@@ -1,21 +1,15 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import FeedbackItem from './FeedbackItem'
-import { feedBackItem } from '@/lib/types'
 import Spinner from './Spinner'
 import ErrorMessage from './ErrorMessage'
+import { FeedbackStore } from '@/store/feedbackstore'
 
 
-type feedBackItemDisplay=feedBackItem & {
-  id:string
-}
-type FeedbackListProps={
-  feedbackItems:feedBackItemDisplay[],
-  isLoading:boolean,
-  errorMessage:string
-}
-const FeedbackList = ({feedbackItems,isLoading,errorMessage}:FeedbackListProps) => {
-  
+const FeedbackList = () => {
+  const feedbackItems =FeedbackStore(state=>state.getFilteredItems())
+  const isLoading =FeedbackStore(state=>state.isLoading)
+  const errorMessage =FeedbackStore(state=>state.errorMessage)
   
 
   return (

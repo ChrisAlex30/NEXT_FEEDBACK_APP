@@ -1,11 +1,11 @@
 "use client"
 import { MAX_CHARACTERS } from '@/lib/constant'
+import { FeedbackStore } from '@/store/feedbackstore'
 import React, { useRef, useState } from 'react'
 
-type FeedbackFormProps={
-  handleAdd:(item:string)=>void
-}
-const FeedbackForm = ({handleAdd}:FeedbackFormProps) => {
+
+const FeedbackForm = () => {
+  const handleAdd =FeedbackStore(state=>state.handleAdd)
   const inputRef=useRef<HTMLTextAreaElement>(null)
   const [text,setText]=useState("")
   const [showValid,setShowValid]=useState(false)

@@ -1,10 +1,11 @@
+import { FeedbackStore } from '@/store/feedbackstore'
 import React from 'react'
 
-type HashtagListProps={
-  companyList:string[]
-  handleCompanySelect:(company:string)=>void
-}
-const HashtagList = ({companyList,handleCompanySelect}:HashtagListProps) => {
+
+const HashtagList = () => {
+  const companyList =FeedbackStore(state=>state.getCompanyList())
+  const handleCompanySelect =FeedbackStore(state=>state.handleCompanySelect)
+
   return (
     <ul className='hashtags'>
       {
